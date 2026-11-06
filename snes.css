@@ -133,53 +133,112 @@ start and select buttons. */
     opacity: 1;
 }
 
-/* ============================================
-   SNES - ENHANCED BUTTON GLOW
-   ============================================ */
 
-/* A, B, X, Y buttons */
-.controller.custom .button.pressed {
+/* ==========================================
+   SNES - ELECTRIC NEON BLUE GLOW
+   ========================================== */
+
+/* A, B, X, Y - Original highlights */
+.custom .button.pressed {
     opacity: 1 !important;
-
-    filter:
-        brightness(2.5)
-        saturate(1.8)
-        drop-shadow(0 0 5px #ffffff)
-        drop-shadow(0 0 12px #ff44ff)
-        drop-shadow(0 0 22px #a000ff)
-        !important;
+    filter: brightness(2.5) !important;
 }
 
-/* D-PAD directions */
-.controller.custom .face.pressed {
-    opacity: 1 !important;
+/* Neon blue circular glow */
+.custom .button.pressed::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    pointer-events: none;
 
-    filter:
-        brightness(2.5)
-        drop-shadow(0 0 5px #ffffff)
-        drop-shadow(0 0 12px #ff44ff)
-        drop-shadow(0 0 20px #a000ff)
-        !important;
+    background: rgba(0, 210, 255, 0.35);
+
+    box-shadow:
+        inset 0 0 12px #ffffff,
+        0 0 8px 4px #7df9ff,
+        0 0 18px 6px #00bfff,
+        0 0 32px 10px #0066ff;
+
+    animation: snesBluePulse 0.8s
+        ease-in-out infinite alternate;
+}
+
+/* D-PAD highlights */
+.custom .face.pressed {
+    opacity: 1 !important;
+    filter: brightness(2.5) !important;
+}
+
+/* Neon blue D-PAD glow */
+.custom .face.pressed::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 7px;
+    pointer-events: none;
+
+    background: rgba(0, 210, 255, 0.3);
+
+    box-shadow:
+        inset 0 0 8px #ffffff,
+        0 0 8px #7df9ff,
+        0 0 18px #00bfff,
+        0 0 26px #0066ff;
 }
 
 /* START and SELECT */
-.controller.custom .back.pressed,
-.controller.custom .start.pressed {
-    filter:
-        brightness(2)
-        drop-shadow(0 0 8px #ff44ff)
-        drop-shadow(0 0 16px #a000ff)
-        !important;
+.custom .back.pressed,
+.custom .start.pressed {
+    filter: brightness(2.5) !important;
+    position: relative;
 }
 
-/* LEFT and RIGHT shoulder buttons */
-.controller.custom .trigger.pressed {
+/* Neon blue menu glow */
+.custom .back.pressed::after,
+.custom .start.pressed::after {
+    content: "";
+    position: absolute;
+    inset: 14px 7px;
+    border-radius: 50%;
+    pointer-events: none;
+
+    box-shadow:
+        0 0 8px #ffffff,
+        0 0 16px #00bfff,
+        0 0 26px #0066ff;
+}
+
+/* LEFT and RIGHT shoulder triggers */
+.custom .trigger.pressed {
     opacity: 1 !important;
-
-    filter:
-        brightness(2.3)
-        drop-shadow(0 0 9px #ff44ff)
-        drop-shadow(0 0 20px #a000ff)
-        !important;
+    filter: brightness(2.5) !important;
+    position: relative;
 }
 
+/* Neon blue shoulder glow */
+.custom .trigger.pressed::after {
+    content: "";
+    position: absolute;
+    inset: 5px 18px;
+    border-radius: 16px;
+    pointer-events: none;
+
+    box-shadow:
+        0 0 10px #7df9ff,
+        0 0 20px #00bfff,
+        0 0 30px #0066ff;
+}
+
+/* Electric blue pulsing animation */
+@keyframes snesBluePulse {
+    from {
+        opacity: 0.75;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
