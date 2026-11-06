@@ -132,3 +132,54 @@ start and select buttons. */
 .custom .face.pressed{
     opacity: 1;
 }
+
+/* ============================================
+   SNES - ENHANCED BUTTON GLOW
+   ============================================ */
+
+/* A, B, X, Y buttons */
+.controller.custom .button.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(2.5)
+        saturate(1.8)
+        drop-shadow(0 0 5px #ffffff)
+        drop-shadow(0 0 12px #ff44ff)
+        drop-shadow(0 0 22px #a000ff)
+        !important;
+}
+
+/* D-PAD directions */
+.controller.custom .face.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(2.5)
+        drop-shadow(0 0 5px #ffffff)
+        drop-shadow(0 0 12px #ff44ff)
+        drop-shadow(0 0 20px #a000ff)
+        !important;
+}
+
+/* START and SELECT */
+.controller.custom .back.pressed,
+.controller.custom .start.pressed {
+    filter:
+        brightness(2)
+        drop-shadow(0 0 8px #ff44ff)
+        drop-shadow(0 0 16px #a000ff)
+        !important;
+}
+
+/* LEFT and RIGHT shoulder buttons */
+.controller.custom .trigger.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(2.3)
+        drop-shadow(0 0 9px #ff44ff)
+        drop-shadow(0 0 20px #a000ff)
+        !important;
+}
+
